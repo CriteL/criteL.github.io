@@ -34,7 +34,7 @@
     </author>
     <category term="useless" scheme="https://critel.github.io/tags/useless/"/>
     <content>
-      <![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这是测试段落</p>]]>
+      <![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这是测试段落<br>测试：$a+b=c$</p>]]>
     </content>
     <id>https://critel.github.io/posts/a4cf8400.html</id>
     <link href="https://critel.github.io/posts/a4cf8400.html"/>
@@ -43,7 +43,7 @@
       <![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" cla]]>
     </summary>
     <title>初始之作</title>
-    <updated>2026-04-25T12:26:01.159Z</updated>
+    <updated>2026-04-25T12:29:02.966Z</updated>
   </entry>
   <entry>
     <author>
