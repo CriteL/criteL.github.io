@@ -368,3 +368,15 @@ div#category {
 #article-container figure.highlight {
   border-radius: 10px;
 }
+
+/* 页脚计时器居中 */
+#runtime-wrap {
+  text-align: center !important;
+  width: 100%;
+}
+
+/* 如果计时器在 #footer-wrap 内 */
+#footer-wrap #runtime-wrap {
+  justify-content: center;
+  display: flex;
+}
