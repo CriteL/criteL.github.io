@@ -369,14 +369,16 @@ div#category {
   border-radius: 10px;
 }
 
-/* 页脚计时器居中 */
-#runtime-wrap {
-  text-align: center !important;
+/* 强制页脚计时器居中 */
+#footer #runtime-wrap {
   width: 100%;
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 如果计时器在 #footer-wrap 内 */
-#footer-wrap #runtime-wrap {
-  justify-content: center;
-  display: flex;
+/* 如果计时器文字本身有 margin/padding 导致偏移，重置它 */
+#footer #runtime-wrap span {
+  margin: 0 auto;
 }
