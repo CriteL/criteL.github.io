@@ -9,11 +9,11 @@
 <meta property="article:published_time" content="2026-07-18T12:30:00.000Z">
 <meta property="article:modified_time" content="2026-07-18T15:58:44.435Z">
 <meta property="article:author" content="拜泪">
-<meta property="article:tag" content="学习资料">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="NLP">
 <meta property="article:tag" content="Transformer">
 <meta property="article:tag" content="论文解读">
+<meta property="article:tag" content="学习资料">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://critel.github.io/img/mypicture.jpg"><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -163,796 +163,574 @@
   isHighlightShrink: false,
   isToc: true,
   pageType: 'post'
-}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><link rel="stylesheet" href="/js/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="拜泪X`Blog" type="application/atom+xml">
-</head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/forest.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-tv"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">拜泪X`Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">《Attention Is All You Need》论文精读</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-tv"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">《Attention Is All You Need》论文精读</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-18T12:30:00.000Z" title="发表于 2026-07-18 20:30:00">2026-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-18T15:58:44.435Z" title="更新于 2026-07-18 23:58:44">2026-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="零论文速览">零、论文速览</h2>
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="/js/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="拜泪X`Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/forest.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-tv"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">拜泪X`Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">《Attention Is All You Need》论文精读</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/bangumi/"><i class="fa-fw fas fa-tv"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/cinema/"><i class="fa-fw fas fa-tv"></i><span> 追剧</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">《Attention Is All You Need》论文精读</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-18T12:30:00.000Z" title="发表于 2026-07-18 20:30:00">2026-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-18T15:58:44.435Z" title="更新于 2026-07-18 23:58:44">2026-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/">论文笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="零、论文速览"><a href="#零、论文速览" class="headerlink" title="零、论文速览"></a>零、论文速览</h2><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">项目</th>
-<th style="text-align: left;">内容</th>
+<th style="text-align:left">项目</th>
+<th style="text-align:left">内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>标题</strong></td>
-<td style="text-align: left;"><em>Attention Is All You Need</em></td>
+<td style="text-align:left"><strong>标题</strong></td>
+<td style="text-align:left"><em>Attention Is All You Need</em></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>作者</strong></td>
-<td style="text-align: left;">Ashish Vaswani, Noam Shazeer, Niki Parmar,
-Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia
-Polosukhin</td>
+<td style="text-align:left"><strong>作者</strong></td>
+<td style="text-align:left">Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>机构</strong></td>
-<td style="text-align: left;">Google Brain / Google Research /
-University of Toronto</td>
+<td style="text-align:left"><strong>机构</strong></td>
+<td style="text-align:left">Google Brain / Google Research / University of Toronto</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>发表</strong></td>
-<td style="text-align: left;">NIPS 2017</td>
+<td style="text-align:left"><strong>发表</strong></td>
+<td style="text-align:left">NIPS 2017</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>核心贡献</strong></td>
-<td style="text-align: left;">提出
-<strong>Transformer</strong>——第一个<strong>完全基于注意力机制</strong>的序列转导模型，彻底摒弃循环和卷积</td>
+<td style="text-align:left"><strong>核心贡献</strong></td>
+<td style="text-align:left">提出 <strong>Transformer</strong>——第一个<strong>完全基于注意力机制</strong>的序列转导模型，彻底摒弃循环和卷积</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
-<p>⚡ 这篇论文奠定了 GPT、BERT、Claude
-等一切现代大语言模型的<strong>基础架构</strong>。理解
-Transformer，就是理解当代 AI 的起点。</p>
+<p>⚡ 这篇论文奠定了 GPT、BERT、Claude 等一切现代大语言模型的<strong>基础架构</strong>。理解 Transformer，就是理解当代 AI 的起点。</p>
 </blockquote>
-<hr />
-<h2 id="一背景与动机">一、背景与动机</h2>
-<h3 id="此前主流方法的局限">1.1 此前主流方法的局限</h3>
+<hr>
+<h2 id="一、背景与动机"><a href="#一、背景与动机" class="headerlink" title="一、背景与动机"></a>一、背景与动机</h2><h3 id="1-1-此前主流方法的局限"><a href="#1-1-此前主流方法的局限" class="headerlink" title="1.1 此前主流方法的局限"></a>1.1 此前主流方法的局限</h3><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">方法</th>
-<th style="text-align: left;">代表</th>
-<th style="text-align: left;">核心痛点</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">代表</th>
+<th style="text-align:left">核心痛点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>RNN / LSTM / GRU</strong></td>
-<td style="text-align: left;">GNMT, Seq2Seq</td>
-<td style="text-align: left;">顺序计算 <span
-class="math inline"><em>h</em><sub><em>t</em></sub> = <em>f</em>(<em>h</em><sub><em>t</em> − 1</sub>, <em>x</em><sub><em>t</em></sub>)</span>，<strong>训练无法并行</strong>；长序列受限于显存</td>
+<td style="text-align:left"><strong>RNN / LSTM / GRU</strong></td>
+<td style="text-align:left">GNMT, Seq2Seq</td>
+<td style="text-align:left">顺序计算 $h<em>t = f(h</em>{t-1}, x_t)$，<strong>训练无法并行</strong>；长序列受限于显存</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>CNN</strong></td>
-<td style="text-align: left;">ByteNet, ConvS2S</td>
-<td
-style="text-align: left;">两端之间的信号路径随距离<strong>线性或对数增长</strong>，远距离依赖难学</td>
+<td style="text-align:left"><strong>CNN</strong></td>
+<td style="text-align:left">ByteNet, ConvS2S</td>
+<td style="text-align:left">两端之间的信号路径随距离<strong>线性或对数增长</strong>，远距离依赖难学</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>RNN + Attention</strong></td>
-<td style="text-align: left;">Bahdanau et al.</td>
-<td style="text-align: left;">Attention 仅作为 RNN
-的<strong>辅助插件</strong>，循环瓶颈依然存在</td>
+<td style="text-align:left"><strong>RNN + Attention</strong></td>
+<td style="text-align:left">Bahdanau et al.</td>
+<td style="text-align:left">Attention 仅作为 RNN 的<strong>辅助插件</strong>，循环瓶颈依然存在</td>
 </tr>
 </tbody>
 </table>
-<h3 id="核心洞察">1.2 核心洞察</h3>
-<p>注意力机制本身就能以 <strong><span
-class="math inline"><em>O</em>(1)</span>
-的常数操作数</strong>建模任意两个位置之间的依赖关系。那么问题来了——</p>
+</div>
+<h3 id="1-2-核心洞察"><a href="#1-2-核心洞察" class="headerlink" title="1.2 核心洞察"></a>1.2 核心洞察</h3><p>注意力机制本身就能以 <strong>$O(1)$ 的常数操作数</strong>建模任意两个位置之间的依赖关系。那么问题来了——</p>
 <blockquote>
 <p><strong>为什么不把 RNN 和 CNN 统统丢掉，只用注意力？</strong></p>
 </blockquote>
 <p>这就是 Transformer 的出发点。</p>
-<hr />
-<h2 id="二模型架构全景">二、模型架构全景</h2>
-<h3 id="编码器-解码器总览">2.1 编码器-解码器总览</h3>
-<p>Transformer 沿用经典的 Encoder-Decoder 框架：</p>
-<p><span class="math display">$$
-\text{Input: } (x_1, \dots, x_n) \quad \xrightarrow{\text{Encoder }
-N\times} \quad \mathbf{z} = (z_1, \dots, z_n) \quad
-\xrightarrow{\text{Decoder } N\times} \quad (y_1, \dots, y_m)
-$$</span></p>
-<ul>
-<li><strong>Encoder</strong>：将输入序列映射为连续表示 <span
-class="math inline"><strong>z</strong></span></li>
-<li><strong>Decoder</strong>：基于 <span
-class="math inline"><strong>z</strong></span>
-<strong>自回归地</strong>逐 token 生成输出（每步把已生成的 token
-作为额外输入）</li>
+<hr>
+<h2 id="二、模型架构全景"><a href="#二、模型架构全景" class="headerlink" title="二、模型架构全景"></a>二、模型架构全景</h2><h3 id="2-1-编码器-解码器总览"><a href="#2-1-编码器-解码器总览" class="headerlink" title="2.1 编码器-解码器总览"></a>2.1 编码器-解码器总览</h3><p>Transformer 沿用经典的 Encoder-Decoder 框架：</p>
+<script type="math/tex; mode=display">
+\text{Input: } (x_1, \dots, x_n) \quad \xrightarrow{\text{Encoder } N\times} \quad \mathbf{z} = (z_1, \dots, z_n) \quad \xrightarrow{\text{Decoder } N\times} \quad (y_1, \dots, y_m)</script><ul>
+<li><strong>Encoder</strong>：将输入序列映射为连续表示 $\mathbf{z}$</li>
+<li><strong>Decoder</strong>：基于 $\mathbf{z}$ <strong>自回归地</strong>逐 token 生成输出（每步把已生成的 token 作为额外输入）</li>
 </ul>
-<h3 id="编码器">2.2 编码器</h3>
-<p><span class="math display">$$
-\boxed{\text{Encoder} = N \times \big(\text{Multi-Head Self-Attn} \to
-\text{Add \&amp; Norm} \to \text{FFN} \to \text{Add \&amp; Norm}\big)}
-$$</span></p>
-<p>每层两个子层，每个子层后都有 <strong>残差连接</strong> +
-<strong>层归一化</strong>：</p>
-<p><span
-class="math display">Output = LayerNorm(<em>x</em> + Sublayer(<em>x</em>))</span></p>
+<h3 id="2-2-编码器"><a href="#2-2-编码器" class="headerlink" title="2.2 编码器"></a>2.2 编码器</h3><script type="math/tex; mode=display">
+\boxed{\text{Encoder} = N \times \big(\text{Multi-Head Self-Attn} \to \text{Add \& Norm} \to \text{FFN} \to \text{Add \& Norm}\big)}</script><p>每层两个子层，每个子层后都有 <strong>残差连接</strong> + <strong>层归一化</strong>：</p>
+<script type="math/tex; mode=display">
+\text{Output} = \text{LayerNorm}\big(x + \text{Sublayer}(x)\big)</script><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">参数</th>
-<th style="text-align: left;">值</th>
-<th style="text-align: left;">说明</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">层数 <span
-class="math inline"><em>N</em></span></td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">编码器和解码器各 6 层</td>
+<td style="text-align:left">层数 $N$</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">编码器和解码器各 6 层</td>
 </tr>
 <tr>
-<td style="text-align: left;">模型维度 <span
-class="math inline"><em>d</em><sub>model</sub></span></td>
-<td style="text-align: left;">512</td>
-<td style="text-align: left;">所有子层 + 嵌入层的输出维度</td>
+<td style="text-align:left">模型维度 $d_{\text{model}}$</td>
+<td style="text-align:left">512</td>
+<td style="text-align:left">所有子层 + 嵌入层的输出维度</td>
 </tr>
 <tr>
-<td style="text-align: left;">FFN 内部维度 <span
-class="math inline"><em>d</em><sub><em>f</em><em>f</em></sub></span></td>
-<td style="text-align: left;">2048</td>
-<td style="text-align: left;"><span
-class="math inline">FFN(<em>x</em>) = max (0, <em>x</em><em>W</em><sub>1</sub> + <em>b</em><sub>1</sub>)<em>W</em><sub>2</sub> + <em>b</em><sub>2</sub></span></td>
+<td style="text-align:left">FFN 内部维度 $d_{ff}$</td>
+<td style="text-align:left">2048</td>
+<td style="text-align:left">$\text{FFN}(x) = \max(0, xW_1 + b_1)W_2 + b_2$</td>
 </tr>
 </tbody>
 </table>
-<h3 id="解码器">2.3 解码器</h3>
-<p><span class="math display">$$
-\boxed{\text{Decoder} = N \times \big(\text{Masked MHA} \to
-\text{A\&amp;N} \to \text{Enc-Dec MHA} \to \text{A\&amp;N} \to
-\text{FFN} \to \text{A\&amp;N}\big)}
-$$</span></p>
-<p>比编码器多一个子层（三类注意力，见下表）：</p>
+</div>
+<h3 id="2-3-解码器"><a href="#2-3-解码器" class="headerlink" title="2.3 解码器"></a>2.3 解码器</h3><script type="math/tex; mode=display">
+\boxed{\text{Decoder} = N \times \big(\text{Masked MHA} \to \text{A\&N} \to \text{Enc-Dec MHA} \to \text{A\&N} \to \text{FFN} \to \text{A\&N}\big)}</script><p>比编码器多一个子层（三类注意力，见下表）：</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">子层</th>
-<th style="text-align: left;">Q 来源</th>
-<th style="text-align: left;">K、V 来源</th>
-<th style="text-align: left;">功能</th>
+<th style="text-align:left">子层</th>
+<th style="text-align:left">Q 来源</th>
+<th style="text-align:left">K、V 来源</th>
+<th style="text-align:left">功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>掩码多头自注意力</strong></td>
-<td style="text-align: left;">上一层 Decoder</td>
-<td style="text-align: left;">上一层 Decoder</td>
-<td
-style="text-align: left;">解码器内自注意，<strong>掩码防止看到未来位置</strong></td>
+<td style="text-align:left"><strong>掩码多头自注意力</strong></td>
+<td style="text-align:left">上一层 Decoder</td>
+<td style="text-align:left">上一层 Decoder</td>
+<td style="text-align:left">解码器内自注意，<strong>掩码防止看到未来位置</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>编码器-解码器注意力</strong></td>
-<td style="text-align: left;">上一层 Decoder</td>
-<td style="text-align: left;">Encoder 最终输出</td>
-<td
-style="text-align: left;">解码器每个位置关注<strong>全部输入</strong></td>
+<td style="text-align:left"><strong>编码器-解码器注意力</strong></td>
+<td style="text-align:left">上一层 Decoder</td>
+<td style="text-align:left">Encoder 最终输出</td>
+<td style="text-align:left">解码器每个位置关注<strong>全部输入</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>前馈网络</strong></td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">—</td>
-<td style="text-align: left;">同编码器</td>
+<td style="text-align:left"><strong>前馈网络</strong></td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">—</td>
+<td style="text-align:left">同编码器</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
-<p>🔑 <strong>自回归性质</strong>：输出嵌入偏移一个位置 +
-掩码机制，确保位置 <span class="math inline"><em>i</em></span>
-的预测只能依赖位置 <span class="math inline"> &lt; <em>i</em></span>
-的已知输出。</p>
+<p>🔑 <strong>自回归性质</strong>：输出嵌入偏移一个位置 + 掩码机制，确保位置 $i$ 的预测只能依赖位置 $&lt; i$ 的已知输出。</p>
 </blockquote>
-<hr />
-<h2 id="三注意力机制transformer-的灵魂">三、注意力机制——Transformer
-的灵魂</h2>
-<h3 id="缩放点积注意力">3.1 缩放点积注意力</h3>
-<p>注意力函数的本质：给定一个 <strong>查询（Query）</strong>，在一组
-<strong>键值对（Key-Value）</strong> 中做软检索，输出值的加权和：</p>
-<p><span class="math display">$$
-\text{Attention}(Q, K, V) =
-\text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V
-$$</span></p>
+<hr>
+<h2 id="三、注意力机制——Transformer-的灵魂"><a href="#三、注意力机制——Transformer-的灵魂" class="headerlink" title="三、注意力机制——Transformer 的灵魂"></a>三、注意力机制——Transformer 的灵魂</h2><h3 id="3-1-缩放点积注意力"><a href="#3-1-缩放点积注意力" class="headerlink" title="3.1 缩放点积注意力"></a>3.1 缩放点积注意力</h3><p>注意力函数的本质：给定一个 <strong>查询（Query）</strong>，在一组 <strong>键值对（Key-Value）</strong> 中做软检索，输出值的加权和：</p>
+<script type="math/tex; mode=display">
+\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right) V</script><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">术语</th>
-<th style="text-align: left;">含义</th>
-<th style="text-align: left;">维度</th>
+<th style="text-align:left">术语</th>
+<th style="text-align:left">含义</th>
+<th style="text-align:left">维度</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><span
-class="math inline"><em>Q</em></span>（Query）</td>
-<td style="text-align: left;">“我要找什么”</td>
-<td style="text-align: left;"><span
-class="math inline"><em>n</em><sub><em>q</em></sub> × <em>d</em><sub><em>k</em></sub></span></td>
+<td style="text-align:left">$Q$（Query）</td>
+<td style="text-align:left">“我要找什么”</td>
+<td style="text-align:left">$n_q \times d_k$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline"><em>K</em></span>（Key）</td>
-<td style="text-align: left;">“我有什么可供匹配”</td>
-<td style="text-align: left;"><span
-class="math inline"><em>n</em><sub><em>k</em></sub> × <em>d</em><sub><em>k</em></sub></span></td>
+<td style="text-align:left">$K$（Key）</td>
+<td style="text-align:left">“我有什么可供匹配”</td>
+<td style="text-align:left">$n_k \times d_k$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline"><em>V</em></span>（Value）</td>
-<td style="text-align: left;">“匹配后提取什么内容”</td>
-<td style="text-align: left;"><span
-class="math inline"><em>n</em><sub><em>k</em></sub> × <em>d</em><sub><em>v</em></sub></span></td>
+<td style="text-align:left">$V$（Value）</td>
+<td style="text-align:left">“匹配后提取什么内容”</td>
+<td style="text-align:left">$n_k \times d_v$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">$\frac{1}{\sqrt{d_k}}$</span></td>
-<td style="text-align: left;"><strong>缩放因子</strong>——核心创新</td>
-<td style="text-align: left;">标量</td>
+<td style="text-align:left">$\frac{1}{\sqrt{d_k}}$</td>
+<td style="text-align:left"><strong>缩放因子</strong>——核心创新</td>
+<td style="text-align:left">标量</td>
 </tr>
 </tbody>
 </table>
-<h4 id="为什么必须缩放">为什么必须缩放？</h4>
-<p>假设 <span class="math inline"><strong>q</strong></span> 和 <span
-class="math inline"><strong>k</strong></span> 的分量是独立随机变量，均值
-<span class="math inline">0</span>，方差 <span
-class="math inline">1</span>。则：</p>
-<p><span class="math display">$$
-q \cdot k = \sum_{i=1}^{d_k} q_i k_i \quad \Rightarrow \quad
-\mathbb{E}[q \cdot k] = 0,\quad \text{Var}(q \cdot k) = d_k
-$$</span></p>
-<p>当 <span class="math inline"><em>d</em><sub><em>k</em></sub></span>
-很大时，点积值巨大 <span class="math inline">→</span> softmax 输出趋近于
-one-hot <span class="math inline">→</span> <strong>梯度 <span
-class="math inline"> ≈ 0</span></strong>，训练停滞。</p>
-<p>除以 <span class="math inline">$\sqrt{d_k}$</span> 将方差拉回 <span
-class="math inline">1</span>，<strong>解决了梯度消失问题</strong>。</p>
-<h3 id="多头注意力">3.2 多头注意力</h3>
-<p>不做一个大而全的注意力，而是并行做 <strong><span
-class="math inline"><em>h</em></span>
-个小型注意力</strong>，各自在不同子空间中捕捉信息：</p>
-<p><span
-class="math display">MultiHead(<em>Q</em>, <em>K</em>, <em>V</em>) = Concat(head<sub>1</sub>, …, head<sub><em>h</em></sub>) <em>W</em><sup><em>O</em></sup></span></p>
-<p><span
-class="math display">head<sub><em>i</em></sub> = Attention(<em>Q</em><em>W</em><sub><em>i</em></sub><sup><em>Q</em></sup>, <em>K</em><em>W</em><sub><em>i</em></sub><sup><em>K</em></sup>, <em>V</em><em>W</em><sub><em>i</em></sub><sup><em>V</em></sup>)</span></p>
+</div>
+<h4 id="为什么必须缩放？"><a href="#为什么必须缩放？" class="headerlink" title="为什么必须缩放？"></a>为什么必须缩放？</h4><p>假设 $\mathbf{q}$ 和 $\mathbf{k}$ 的分量是独立随机变量，均值 $0$，方差 $1$。则：</p>
+<script type="math/tex; mode=display">
+q \cdot k = \sum_{i=1}^{d_k} q_i k_i \quad \Rightarrow \quad \mathbb{E}[q \cdot k] = 0,\quad \text{Var}(q \cdot k) = d_k</script><p>当 $d_k$ 很大时，点积值巨大 $\to$ softmax 输出趋近于 one-hot $\to$ <strong>梯度 $\approx 0$</strong>，训练停滞。</p>
+<p>除以 $\sqrt{d_k}$ 将方差拉回 $1$，<strong>解决了梯度消失问题</strong>。</p>
+<h3 id="3-2-多头注意力"><a href="#3-2-多头注意力" class="headerlink" title="3.2 多头注意力"></a>3.2 多头注意力</h3><p>不做一个大而全的注意力，而是并行做 <strong>$h$ 个小型注意力</strong>，各自在不同子空间中捕捉信息：</p>
+<script type="math/tex; mode=display">
+\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)\, W^O</script><script type="math/tex; mode=display">
+\text{head}_i = \text{Attention}(QW_i^Q,\ KW_i^K,\ VW_i^V)</script><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">参数</th>
-<th style="text-align: left;">值</th>
-<th style="text-align: left;">说明</th>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">头数 <span
-class="math inline"><em>h</em></span></td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">并行注意力数</td>
+<td style="text-align:left">头数 $h$</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">并行注意力数</td>
 </tr>
 <tr>
-<td style="text-align: left;">每头维度</td>
-<td style="text-align: left;"><span
-class="math inline"><em>d</em><sub><em>k</em></sub> = <em>d</em><sub><em>v</em></sub> = <em>d</em><sub>model</sub>/<em>h</em> = 64</span></td>
-<td style="text-align: left;">降维后计算</td>
+<td style="text-align:left">每头维度</td>
+<td style="text-align:left">$d<em>k = d_v = d</em>{\text{model}} / h = 64$</td>
+<td style="text-align:left">降维后计算</td>
 </tr>
 <tr>
-<td style="text-align: left;">投影矩阵</td>
-<td style="text-align: left;"><span
-class="math inline"><em>W</em><sub><em>i</em></sub><sup><em>Q</em></sup>, <em>W</em><sub><em>i</em></sub><sup><em>K</em></sup> ∈ ℝ<sup><em>d</em><sub>model</sub> × <em>d</em><sub><em>k</em></sub></sup></span>，<span
-class="math inline"><em>W</em><sub><em>i</em></sub><sup><em>V</em></sup> ∈ ℝ<sup><em>d</em><sub>model</sub> × <em>d</em><sub><em>v</em></sub></sup></span>，<span
-class="math inline"><em>W</em><sup><em>O</em></sup> ∈ ℝ<sup><em>h</em><em>d</em><sub><em>v</em></sub> × <em>d</em><sub>model</sub></sup></span></td>
-<td style="text-align: left;">全部可学习</td>
+<td style="text-align:left">投影矩阵</td>
+<td style="text-align:left">$W<em>i^Q, W_i^K \in \mathbb{R}^{d</em>{\text{model}} \times d<em>k}$，$W_i^V \in \mathbb{R}^{d</em>{\text{model}} \times d<em>v}$，$W^O \in \mathbb{R}^{hd_v \times d</em>{\text{model}}}$</td>
+<td style="text-align:left">全部可学习</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
-<p>🎯
-<strong>多头的好处</strong>：不同头关注<strong>不同表示子空间</strong>——有的头看句法，有的头看语义，有的头做指代消解。单头会通过平均<strong>抹杀</strong>这种多样性。</p>
+<p>🎯 <strong>多头的好处</strong>：不同头关注<strong>不同表示子空间</strong>——有的头看句法，有的头看语义，有的头做指代消解。单头会通过平均<strong>抹杀</strong>这种多样性。</p>
 </blockquote>
-<p>每头维度降低为原来的 <span
-class="math inline">1/<em>h</em></span>，所以总计算量与全维度单头注意力<strong>基本持平</strong>。</p>
-<hr />
-<h2 id="四位置编码赋予序列以顺序">四、位置编码——赋予序列以”顺序”</h2>
-<h3 id="为什么需要">4.1 为什么需要？</h3>
-<p>Transformer <strong>没有循环也没有卷积</strong>，本身对 token
-顺序<strong>无感知</strong>。如果只是把词嵌入输进去，“A loves B” 和 “B
-loves A” 对模型来说一模一样。必须注入位置信息。</p>
-<h3 id="正弦-余弦方案">4.2 正弦-余弦方案</h3>
-<p>论文采用的是固定三角函数编码，而非可学习的嵌入：</p>
-<p><span class="math display">$$
-PE_{(pos,\, 2i)} = \sin\!\left(\frac{pos}{10000^{2i /
-d_{\text{model}}}}\right)
-$$</span></p>
-<p><span class="math display">$$
-PE_{(pos,\, 2i+1)} = \cos\!\left(\frac{pos}{10000^{2i /
-d_{\text{model}}}}\right)
-$$</span></p>
-<ul>
-<li><span
-class="math inline"><em>p</em><em>o</em><em>s</em></span>：token
-在序列中的位置</li>
-<li><span
-class="math inline"><em>i</em></span>：编码向量的维度索引（<span
-class="math inline">0, 1, …, <em>d</em><sub>model</sub>/2 − 1</span>）</li>
-<li>波长从 <span class="math inline">2<em>π</em></span> 到 <span
-class="math inline">10000 ⋅ 2<em>π</em></span>，呈<strong>几何级数</strong>分布——不同维度对应不同频率</li>
+<p>每头维度降低为原来的 $1/h$，所以总计算量与全维度单头注意力<strong>基本持平</strong>。</p>
+<hr>
+<h2 id="四、位置编码——赋予序列以”顺序”"><a href="#四、位置编码——赋予序列以”顺序”" class="headerlink" title="四、位置编码——赋予序列以”顺序”"></a>四、位置编码——赋予序列以”顺序”</h2><h3 id="4-1-为什么需要？"><a href="#4-1-为什么需要？" class="headerlink" title="4.1 为什么需要？"></a>4.1 为什么需要？</h3><p>Transformer <strong>没有循环也没有卷积</strong>，本身对 token 顺序<strong>无感知</strong>。如果只是把词嵌入输进去，”A loves B” 和 “B loves A” 对模型来说一模一样。必须注入位置信息。</p>
+<h3 id="4-2-正弦-余弦方案"><a href="#4-2-正弦-余弦方案" class="headerlink" title="4.2 正弦-余弦方案"></a>4.2 正弦-余弦方案</h3><p>论文采用的是固定三角函数编码，而非可学习的嵌入：</p>
+<script type="math/tex; mode=display">
+PE_{(pos,\, 2i)} = \sin\!\left(\frac{pos}{10000^{2i / d_{\text{model}}}}\right)</script><script type="math/tex; mode=display">
+PE_{(pos,\, 2i+1)} = \cos\!\left(\frac{pos}{10000^{2i / d_{\text{model}}}}\right)</script><ul>
+<li>$pos$：token 在序列中的位置</li>
+<li>$i$：编码向量的维度索引（$0, 1, \dots, d_{\text{model}}/2 - 1$）</li>
+<li>波长从 $2\pi$ 到 $10000 \cdot 2\pi$，呈<strong>几何级数</strong>分布——不同维度对应不同频率</li>
 </ul>
-<h3 id="选正弦的理由">4.3 选正弦的理由</h3>
-<ol type="1">
-<li><strong>相对位置可线性表示</strong>：对任意固定偏移 <span
-class="math inline"><em>k</em></span>，<span
-class="math inline"><em>P</em><em>E</em><sub><em>p</em><em>o</em><em>s</em> + <em>k</em></sub></span>
-可表示为 <span
-class="math inline"><em>P</em><em>E</em><sub><em>p</em><em>o</em><em>s</em></sub></span>
-的线性函数 <span class="math inline">→</span> 模型容易学到相对位置</li>
+<h3 id="4-3-选正弦的理由"><a href="#4-3-选正弦的理由" class="headerlink" title="4.3 选正弦的理由"></a>4.3 选正弦的理由</h3><ol>
+<li><strong>相对位置可线性表示</strong>：对任意固定偏移 $k$，$PE<em>{pos+k}$ 可表示为 $PE</em>{pos}$ 的线性函数 $\to$ 模型容易学到相对位置</li>
 <li><strong>外推能力</strong>：训练时没见过的更长序列，正弦函数也能给出合理编码</li>
-<li><strong>实验验证</strong>：学习式嵌入与正弦编码效果几乎相同（BLEU
-差仅 0.1），正弦胜在外推</li>
+<li><strong>实验验证</strong>：学习式嵌入与正弦编码效果几乎相同（BLEU 差仅 0.1），正弦胜在外推</li>
 </ol>
 <p>使用时将位置编码<strong>直接加到</strong>输入嵌入上：</p>
-<p><span
-class="math display">Input = TokenEmbedding(<em>x</em>) + <em>P</em><em>E</em>(<em>x</em>)</span></p>
-<hr />
-<h2 id="五为什么自注意力更优">五、为什么自注意力更优？</h2>
-<p>论文从三个维度系统对比自注意力、RNN 和 CNN：</p>
+<script type="math/tex; mode=display">
+\text{Input} = \text{TokenEmbedding}(x) + PE(x)</script><hr>
+<h2 id="五、为什么自注意力更优？"><a href="#五、为什么自注意力更优？" class="headerlink" title="五、为什么自注意力更优？"></a>五、为什么自注意力更优？</h2><p>论文从三个维度系统对比自注意力、RNN 和 CNN：</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">指标</th>
-<th style="text-align: left;">自注意力</th>
-<th style="text-align: left;">RNN</th>
-<th style="text-align: left;">CNN</th>
-<th style="text-align: left;">受限自注意力</th>
+<th style="text-align:left">指标</th>
+<th style="text-align:left">自注意力</th>
+<th style="text-align:left">RNN</th>
+<th style="text-align:left">CNN</th>
+<th style="text-align:left">受限自注意力</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>每层复杂度</strong></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>n</em><sup>2</sup> ⋅ <em>d</em>)</span></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>n</em> ⋅ <em>d</em><sup>2</sup>)</span></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>k</em> ⋅ <em>n</em> ⋅ <em>d</em><sup>2</sup>)</span></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>r</em> ⋅ <em>n</em> ⋅ <em>d</em>)</span></td>
+<td style="text-align:left"><strong>每层复杂度</strong></td>
+<td style="text-align:left">$O(n^2 \cdot d)$</td>
+<td style="text-align:left">$O(n \cdot d^2)$</td>
+<td style="text-align:left">$O(k \cdot n \cdot d^2)$</td>
+<td style="text-align:left">$O(r \cdot n \cdot d)$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>最少顺序操作</strong></td>
-<td style="text-align: left;"><span
-class="math inline"><strong>O</strong><strong>(</strong><strong>1</strong><strong>)</strong></span>
-✨</td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>n</em>)</span> ❌</td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(1)</span></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(1)</span></td>
+<td style="text-align:left"><strong>最少顺序操作</strong></td>
+<td style="text-align:left">$\mathbf{O(1)}$ ✨</td>
+<td style="text-align:left">$O(n)$ ❌</td>
+<td style="text-align:left">$O(1)$</td>
+<td style="text-align:left">$O(1)$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>最大路径长度</strong></td>
-<td style="text-align: left;"><span
-class="math inline"><strong>O</strong><strong>(</strong><strong>1</strong><strong>)</strong></span>
-✨</td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>n</em>)</span> ❌</td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(log<sub><em>k</em></sub><em>n</em>)</span></td>
-<td style="text-align: left;"><span
-class="math inline"><em>O</em>(<em>n</em>/<em>r</em>)</span></td>
+<td style="text-align:left"><strong>最大路径长度</strong></td>
+<td style="text-align:left">$\mathbf{O(1)}$ ✨</td>
+<td style="text-align:left">$O(n)$ ❌</td>
+<td style="text-align:left">$O(\log_k n)$</td>
+<td style="text-align:left">$O(n/r)$</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
-<p><span class="math inline"><em>n</em></span> — 序列长度；<span
-class="math inline"><em>d</em></span> — 表示维度；<span
-class="math inline"><em>k</em></span> — 卷积核宽度；<span
-class="math inline"><em>r</em></span> — 受限注意力的邻域大小</p>
+<p>$n$ — 序列长度；$d$ — 表示维度；$k$ — 卷积核宽度；$r$ — 受限注意力的邻域大小</p>
 </blockquote>
-<h3 id="三条关键结论">三条关键结论：</h3>
-<p><strong>① 并行性碾压 RNN</strong>：自注意力只需 <span
-class="math inline"><em>O</em>(1)</span> 个顺序操作，RNN 需要 <span
-class="math inline"><em>O</em>(<em>n</em>)</span>——这是 Transformer
-训练<strong>快得多</strong>的根本原因。</p>
-<p><strong>②
-长距离依赖一马平川</strong>：任意两个位置之间的信号路径长度为<strong>常数</strong>
-<span class="math inline"><em>O</em>(1)</span>，RNN 需要穿越 <span
-class="math inline"><em>O</em>(<em>n</em>)</span> 的长度。</p>
-<p><strong>③ 当 <span
-class="math inline"><em>n</em> &lt; <em>d</em></span>
-时计算效率也占优</strong>：机器翻译中句子大多较短（<span
-class="math inline"><em>n</em></span> 小），自注意力比 RNN
-更快。对于超长序列，可通过<strong>受限注意力</strong>（只看 <span
-class="math inline"><em>r</em></span> 大小的邻域）进一步优化。</p>
-<hr />
-<h2 id="六训练方法">六、训练方法</h2>
-<h3 id="数据与批次">6.1 数据与批次</h3>
+<h3 id="三条关键结论："><a href="#三条关键结论：" class="headerlink" title="三条关键结论："></a>三条关键结论：</h3><p><strong>① 并行性碾压 RNN</strong>：自注意力只需 $O(1)$ 个顺序操作，RNN 需要 $O(n)$——这是 Transformer 训练<strong>快得多</strong>的根本原因。</p>
+<p><strong>② 长距离依赖一马平川</strong>：任意两个位置之间的信号路径长度为<strong>常数</strong> $O(1)$，RNN 需要穿越 $O(n)$ 的长度。</p>
+<p><strong>③ 当 $n &lt; d$ 时计算效率也占优</strong>：机器翻译中句子大多较短（$n$ 小），自注意力比 RNN 更快。对于超长序列，可通过<strong>受限注意力</strong>（只看 $r$ 大小的邻域）进一步优化。</p>
+<hr>
+<h2 id="六、训练方法"><a href="#六、训练方法" class="headerlink" title="六、训练方法"></a>六、训练方法</h2><h3 id="6-1-数据与批次"><a href="#6-1-数据与批次" class="headerlink" title="6.1 数据与批次"></a>6.1 数据与批次</h3><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">任务</th>
-<th style="text-align: left;">数据集</th>
-<th style="text-align: left;">规模</th>
-<th style="text-align: left;">编码</th>
+<th style="text-align:left">任务</th>
+<th style="text-align:left">数据集</th>
+<th style="text-align:left">规模</th>
+<th style="text-align:left">编码</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">EN → DE</td>
-<td style="text-align: left;">WMT 2014</td>
-<td style="text-align: left;">450 万句对</td>
-<td style="text-align: left;">Byte-Pair Encoding（37K 共享词表）</td>
+<td style="text-align:left">EN → DE</td>
+<td style="text-align:left">WMT 2014</td>
+<td style="text-align:left">450 万句对</td>
+<td style="text-align:left">Byte-Pair Encoding（37K 共享词表）</td>
 </tr>
 <tr>
-<td style="text-align: left;">EN → FR</td>
-<td style="text-align: left;">WMT 2014</td>
-<td style="text-align: left;">3600 万句对</td>
-<td style="text-align: left;">Word-Piece（32K 词表）</td>
+<td style="text-align:left">EN → FR</td>
+<td style="text-align:left">WMT 2014</td>
+<td style="text-align:left">3600 万句对</td>
+<td style="text-align:left">Word-Piece（32K 词表）</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>每个训练 batch 约含 25000 源 token + 25000 目标 token。</p>
-<h3 id="硬件与速度">6.2 硬件与速度</h3>
+<h3 id="6-2-硬件与速度"><a href="#6-2-硬件与速度" class="headerlink" title="6.2 硬件与速度"></a>6.2 硬件与速度</h3><div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">配置</th>
-<th style="text-align: left;">GPU</th>
-<th style="text-align: left;">每步耗时</th>
-<th style="text-align: left;">总步数</th>
-<th style="text-align: left;">总时长</th>
+<th style="text-align:left">配置</th>
+<th style="text-align:left">GPU</th>
+<th style="text-align:left">每步耗时</th>
+<th style="text-align:left">总步数</th>
+<th style="text-align:left">总时长</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Base</strong></td>
-<td style="text-align: left;">8 × P100</td>
-<td style="text-align: left;">0.4 s</td>
-<td style="text-align: left;">100K</td>
-<td style="text-align: left;"><strong>12 小时</strong> ⚡</td>
+<td style="text-align:left"><strong>Base</strong></td>
+<td style="text-align:left">8 × P100</td>
+<td style="text-align:left">0.4 s</td>
+<td style="text-align:left">100K</td>
+<td style="text-align:left"><strong>12 小时</strong> ⚡</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Big</strong></td>
-<td style="text-align: left;">8 × P100</td>
-<td style="text-align: left;">1.0 s</td>
-<td style="text-align: left;">300K</td>
-<td style="text-align: left;">3.5 天</td>
+<td style="text-align:left"><strong>Big</strong></td>
+<td style="text-align:left">8 × P100</td>
+<td style="text-align:left">1.0 s</td>
+<td style="text-align:left">300K</td>
+<td style="text-align:left">3.5 天</td>
 </tr>
 </tbody>
 </table>
-<h3 id="优化器策略">6.3 优化器策略</h3>
-<p>使用 <strong>Adam</strong>（<span
-class="math inline"><em>β</em><sub>1</sub> = 0.9</span>，<span
-class="math inline"><em>β</em><sub>2</sub> = 0.98</span>，<span
-class="math inline"><em>ϵ</em> = 10<sup>−9</sup></span>），配合自定义的
-<strong>warmup + 衰减</strong>学习率：</p>
-<p><span
-class="math display"><em>l</em><em>r</em><em>a</em><em>t</em><em>e</em> = <em>d</em><sub>model</sub><sup>−0.5</sup> ⋅ min  (<em>s</em><em>t</em><em>e</em><em>p</em>_<em>n</em><em>u</em><em>m</em><sup>−0.5</sup>, <em>s</em><em>t</em><em>e</em><em>p</em>_<em>n</em><em>u</em><em>m</em> ⋅ <em>w</em><em>a</em><em>r</em><em>m</em><em>u</em><em>p</em>_<em>s</em><em>t</em><em>e</em><em>p</em><em>s</em><sup>−1.5</sup>)</span></p>
-<ul>
-<li>前 <strong>4000
-步</strong>：学习率<strong>线性增加</strong>（warmup）</li>
+</div>
+<h3 id="6-3-优化器策略"><a href="#6-3-优化器策略" class="headerlink" title="6.3 优化器策略"></a>6.3 优化器策略</h3><p>使用 <strong>Adam</strong>（$\beta_1 = 0.9$，$\beta_2 = 0.98$，$\epsilon = 10^{-9}$），配合自定义的 <strong>warmup + 衰减</strong>学习率：</p>
+<script type="math/tex; mode=display">
+lrate = d_{\text{model}}^{-0.5} \cdot \min\!\left(step\_num^{-0.5},\ step\_num \cdot warmup\_steps^{-1.5}\right)</script><ul>
+<li>前 <strong>4000 步</strong>：学习率<strong>线性增加</strong>（warmup）</li>
 <li>之后：按步数的<strong>平方根反比递减</strong></li>
 </ul>
-<h3 id="正则化">6.4 正则化</h3>
+<h3 id="6-4-正则化"><a href="#6-4-正则化" class="headerlink" title="6.4 正则化"></a>6.4 正则化</h3><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">方法</th>
-<th style="text-align: left;">设置</th>
-<th style="text-align: left;">说明</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">设置</th>
+<th style="text-align:left">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>残差 Dropout</strong></td>
-<td style="text-align: left;"><span
-class="math inline"><em>P</em><sub><em>d</em><em>r</em><em>o</em><em>p</em></sub> = 0.1</span></td>
-<td
-style="text-align: left;">施加于每个子层输出、嵌入与位置编码之和</td>
+<td style="text-align:left"><strong>残差 Dropout</strong></td>
+<td style="text-align:left">$P_{drop} = 0.1$</td>
+<td style="text-align:left">施加于每个子层输出、嵌入与位置编码之和</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>标签平滑</strong></td>
-<td style="text-align: left;"><span
-class="math inline"><em>ϵ</em><sub><em>l</em><em>s</em></sub> = 0.1</span></td>
-<td style="text-align: left;">将正确标签概率从 1.0 平滑到 <span
-class="math inline">(1 − <em>ϵ</em><sub><em>l</em><em>s</em></sub>) + <em>ϵ</em><sub><em>l</em><em>s</em></sub>/|<em>V</em>|</span>，损害困惑度（PPL）但提升
-BLEU</td>
+<td style="text-align:left"><strong>标签平滑</strong></td>
+<td style="text-align:left">$\epsilon_{ls} = 0.1$</td>
+<td style="text-align:left">将正确标签概率从 1.0 平滑到 $(1 - \epsilon<em>{ls}) + \epsilon</em>{ls}/</td>
+<td>V</td>
+<td>$，损害困惑度（PPL）但提升 BLEU</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="七实验结果">七、实验结果</h2>
-<h3 id="机器翻译">7.1 机器翻译</h3>
+</div>
+<hr>
+<h2 id="七、实验结果"><a href="#七、实验结果" class="headerlink" title="七、实验结果"></a>七、实验结果</h2><h3 id="7-1-机器翻译"><a href="#7-1-机器翻译" class="headerlink" title="7.1 机器翻译"></a>7.1 机器翻译</h3><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">模型</th>
-<th style="text-align: left;">EN-DE BLEU</th>
-<th style="text-align: left;">EN-FR BLEU</th>
-<th style="text-align: left;">训练成本 (FLOPs)</th>
+<th style="text-align:left">模型</th>
+<th style="text-align:left">EN-DE BLEU</th>
+<th style="text-align:left">EN-FR BLEU</th>
+<th style="text-align:left">训练成本 (FLOPs)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">GNMT + RL</td>
-<td style="text-align: left;">24.6</td>
-<td style="text-align: left;">39.92</td>
-<td style="text-align: left;"><span
-class="math inline">2.3 × 10<sup>19</sup></span></td>
+<td style="text-align:left">GNMT + RL</td>
+<td style="text-align:left">24.6</td>
+<td style="text-align:left">39.92</td>
+<td style="text-align:left">$2.3 \times 10^{19}$</td>
 </tr>
 <tr>
-<td style="text-align: left;">ConvS2S</td>
-<td style="text-align: left;">25.16</td>
-<td style="text-align: left;">40.46</td>
-<td style="text-align: left;"><span
-class="math inline">9.6 × 10<sup>18</sup></span></td>
+<td style="text-align:left">ConvS2S</td>
+<td style="text-align:left">25.16</td>
+<td style="text-align:left">40.46</td>
+<td style="text-align:left">$9.6 \times 10^{18}$</td>
 </tr>
 <tr>
-<td style="text-align: left;">MoE</td>
-<td style="text-align: left;">26.03</td>
-<td style="text-align: left;">40.56</td>
-<td style="text-align: left;"><span
-class="math inline">2.0 × 10<sup>19</sup></span></td>
+<td style="text-align:left">MoE</td>
+<td style="text-align:left">26.03</td>
+<td style="text-align:left">40.56</td>
+<td style="text-align:left">$2.0 \times 10^{19}$</td>
 </tr>
 <tr>
-<td style="text-align: left;">GNMT + RL Ensemble</td>
-<td style="text-align: left;">26.30</td>
-<td style="text-align: left;">41.16</td>
-<td style="text-align: left;"><span
-class="math inline">1.8 × 10<sup>20</sup></span></td>
+<td style="text-align:left">GNMT + RL Ensemble</td>
+<td style="text-align:left">26.30</td>
+<td style="text-align:left">41.16</td>
+<td style="text-align:left">$1.8 \times 10^{20}$</td>
 </tr>
 <tr>
-<td style="text-align: left;">ConvS2S Ensemble</td>
-<td style="text-align: left;">26.36</td>
-<td style="text-align: left;">41.29</td>
-<td style="text-align: left;"><span
-class="math inline">7.7 × 10<sup>19</sup></span></td>
+<td style="text-align:left">ConvS2S Ensemble</td>
+<td style="text-align:left">26.36</td>
+<td style="text-align:left">41.29</td>
+<td style="text-align:left">$7.7 \times 10^{19}$</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Transformer (base)</strong></td>
-<td style="text-align: left;">27.3</td>
-<td style="text-align: left;">38.1</td>
-<td style="text-align: left;"><span
-class="math inline"><strong>3.3</strong> <strong>×</strong> <strong>10</strong><sup><strong>18</strong></sup></span>
-⚡</td>
+<td style="text-align:left"><strong>Transformer (base)</strong></td>
+<td style="text-align:left">27.3</td>
+<td style="text-align:left">38.1</td>
+<td style="text-align:left">$\mathbf{3.3 \times 10^{18}}$ ⚡</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Transformer (big)</strong></td>
-<td style="text-align: left;"><strong>28.4</strong> 🏆</td>
-<td style="text-align: left;"><strong>41.8</strong> 🏆</td>
-<td style="text-align: left;"><span
-class="math inline">2.3 × 10<sup>19</sup></span></td>
+<td style="text-align:left"><strong>Transformer (big)</strong></td>
+<td style="text-align:left"><strong>28.4</strong> 🏆</td>
+<td style="text-align:left"><strong>41.8</strong> 🏆</td>
+<td style="text-align:left">$2.3 \times 10^{19}$</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p>🔥 <strong>三大亮点</strong>：</p>
 <ul>
-<li>Big 模型 EN-DE 得分 <strong>28.4
-BLEU</strong>，比之前最好的<strong>集成模型</strong>还高出 2.0+</li>
+<li>Big 模型 EN-DE 得分 <strong>28.4 BLEU</strong>，比之前最好的<strong>集成模型</strong>还高出 2.0+</li>
 <li>Base 模型训练成本仅为竞品的 <strong>1/20 ~ 1/50</strong></li>
-<li>EN-FR 以不到前最佳模型 <strong>1/4
-的训练成本</strong>刷新单模型记录</li>
+<li>EN-FR 以不到前最佳模型 <strong>1/4 的训练成本</strong>刷新单模型记录</li>
 </ul>
 </blockquote>
-<h3 id="消融实验">7.2 消融实验</h3>
+<h3 id="7-2-消融实验"><a href="#7-2-消融实验" class="headerlink" title="7.2 消融实验"></a>7.2 消融实验</h3><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">变体</th>
-<th style="text-align: left;">关键发现</th>
+<th style="text-align:left">变体</th>
+<th style="text-align:left">关键发现</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>(A) 头数</strong></td>
-<td style="text-align: left;">单头差 0.9 BLEU；头太多也降。<strong>8
-头最优</strong></td>
+<td style="text-align:left"><strong>(A) 头数</strong></td>
+<td style="text-align:left">单头差 0.9 BLEU；头太多也降。<strong>8 头最优</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>(B) 键维度 <span
-class="math inline"><em>d</em><sub><em>k</em></sub></span></strong></td>
-<td style="text-align: left;">减小 <span
-class="math inline"><em>d</em><sub><em>k</em></sub></span> 显著损害质量
-<span class="math inline">→</span>
-点积”兼容性匹配”并不简单，更复杂的匹配函数可能有益</td>
+<td style="text-align:left"><strong>(B) 键维度 $d_k$</strong></td>
+<td style="text-align:left">减小 $d_k$ 显著损害质量 $\to$ 点积”兼容性匹配”并不简单，更复杂的匹配函数可能有益</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>(C/D) 模型规模 &amp;
-Dropout</strong></td>
-<td style="text-align: left;">越大越好；<strong>Dropout
-对防过拟合至关重要</strong></td>
+<td style="text-align:left"><strong>(C/D) 模型规模 &amp; Dropout</strong></td>
+<td style="text-align:left">越大越好；<strong>Dropout 对防过拟合至关重要</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>(E) 位置编码</strong></td>
-<td style="text-align: left;">学习式嵌入 <span
-class="math inline">≈</span> 正弦编码（几乎无差异）</td>
+<td style="text-align:left"><strong>(E) 位置编码</strong></td>
+<td style="text-align:left">学习式嵌入 $\approx$ 正弦编码（几乎无差异）</td>
 </tr>
 </tbody>
 </table>
-<h3 id="句法分析泛化验证">7.3 句法分析（泛化验证）</h3>
-<p>在 WSJ Penn Treebank 选区句法分析任务中：</p>
+</div>
+<h3 id="7-3-句法分析（泛化验证）"><a href="#7-3-句法分析（泛化验证）" class="headerlink" title="7.3 句法分析（泛化验证）"></a>7.3 句法分析（泛化验证）</h3><p>在 WSJ Penn Treebank 选区句法分析任务中：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">设置</th>
-<th style="text-align: left;">方法</th>
-<th style="text-align: left;">F1</th>
+<th style="text-align:left">设置</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">F1</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">仅 WSJ 训练集</td>
-<td style="text-align: left;">Transformer (4层)</td>
-<td style="text-align: left;">91.3</td>
+<td style="text-align:left">仅 WSJ 训练集</td>
+<td style="text-align:left">Transformer (4层)</td>
+<td style="text-align:left">91.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">仅 WSJ 训练集</td>
-<td style="text-align: left;">Dyer RNNG</td>
-<td style="text-align: left;">91.7</td>
+<td style="text-align:left">仅 WSJ 训练集</td>
+<td style="text-align:left">Dyer RNNG</td>
+<td style="text-align:left">91.7</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>半监督</strong></td>
-<td style="text-align: left;"><strong>Transformer (4层)</strong></td>
-<td style="text-align: left;"><strong>92.7</strong> 🏆</td>
+<td style="text-align:left"><strong>半监督</strong></td>
+<td style="text-align:left"><strong>Transformer (4层)</strong></td>
+<td style="text-align:left"><strong>92.7</strong> 🏆</td>
 </tr>
 <tr>
-<td style="text-align: left;">半监督</td>
-<td style="text-align: left;">Vinyals &amp; Kaiser</td>
-<td style="text-align: left;">92.1</td>
+<td style="text-align:left">半监督</td>
+<td style="text-align:left">Vinyals &amp; Kaiser</td>
+<td style="text-align:left">92.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">多任务</td>
-<td style="text-align: left;">Luong et al.</td>
-<td style="text-align: left;">93.0</td>
+<td style="text-align:left">多任务</td>
+<td style="text-align:left">Luong et al.</td>
+<td style="text-align:left">93.0</td>
 </tr>
 <tr>
-<td style="text-align: left;">生成式</td>
-<td style="text-align: left;">Dyer RNNG</td>
-<td style="text-align: left;">93.3</td>
+<td style="text-align:left">生成式</td>
+<td style="text-align:left">Dyer RNNG</td>
+<td style="text-align:left">93.3</td>
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
-<p>🔑 值得一提：仅用 <strong>4 万句</strong> WSJ 数据训练，Transformer
-就超越了 BerkeleyParser——后者需要大量任务特定调优。</p>
+<p>🔑 值得一提：仅用 <strong>4 万句</strong> WSJ 数据训练，Transformer 就超越了 BerkeleyParser——后者需要大量任务特定调优。</p>
 </blockquote>
-<hr />
-<h2
-id="八注意力可视化模型在想什么">八、注意力可视化——模型”在想什么”</h2>
-<p>论文附录的可视化是理解 Transformer 内部行为的关键窗口：</p>
-<h3 id="长距离依赖追踪">8.1 长距离依赖追踪</h3>
-<p>在 “making…more difficult” 的翻译中，Encoder 第 5
-层的多个注意力头准确捕获了动词 <code>making</code>
-与其远端补足语之间的依赖——尽管中间隔了十几个 token。</p>
-<h3 id="指代消解">8.2 指代消解</h3>
-<p>某些注意力头对代词 <code>its</code>
-与其先行词（<code>The Law</code>）的连接展现出<strong>极其尖锐</strong>（sharp）的注意力分布——模型清楚地”知道”它在指什么。</p>
-<h3 id="句法分工">8.3 句法分工</h3>
-<p>不同注意力头学会了<strong>不同的句法角色</strong>：</p>
+<hr>
+<h2 id="八、注意力可视化——模型”在想什么”"><a href="#八、注意力可视化——模型”在想什么”" class="headerlink" title="八、注意力可视化——模型”在想什么”"></a>八、注意力可视化——模型”在想什么”</h2><p>论文附录的可视化是理解 Transformer 内部行为的关键窗口：</p>
+<h3 id="8-1-长距离依赖追踪"><a href="#8-1-长距离依赖追踪" class="headerlink" title="8.1 长距离依赖追踪"></a>8.1 长距离依赖追踪</h3><p>在 “making…more difficult” 的翻译中，Encoder 第 5 层的多个注意力头准确捕获了动词 <code>making</code> 与其远端补足语之间的依赖——尽管中间隔了十几个 token。</p>
+<h3 id="8-2-指代消解"><a href="#8-2-指代消解" class="headerlink" title="8.2 指代消解"></a>8.2 指代消解</h3><p>某些注意力头对代词 <code>its</code> 与其先行词（<code>The Law</code>）的连接展现出<strong>极其尖锐</strong>（sharp）的注意力分布——模型清楚地”知道”它在指什么。</p>
+<h3 id="8-3-句法分工"><a href="#8-3-句法分工" class="headerlink" title="8.3 句法分工"></a>8.3 句法分工</h3><p>不同注意力头学会了<strong>不同的句法角色</strong>：</p>
 <ul>
 <li>有的头专注名词短语的边界</li>
 <li>有的头追踪动词-宾语的搭配</li>
 <li>有的头捕捉介词短语的附着关系</li>
 </ul>
 <blockquote>
-<p>💡
-这说明多头注意力并非冗余——不同头确实<strong>自发地</strong>学到了互补的语言学特征。</p>
+<p>💡 这说明多头注意力并非冗余——不同头确实<strong>自发地</strong>学到了互补的语言学特征。</p>
 </blockquote>
-<hr />
-<h2 id="九总结与影响">九、总结与影响</h2>
-<h3 id="论文核心贡献一览">论文核心贡献一览</h3>
+<hr>
+<h2 id="九、总结与影响"><a href="#九、总结与影响" class="headerlink" title="九、总结与影响"></a>九、总结与影响</h2><h3 id="论文核心贡献一览"><a href="#论文核心贡献一览" class="headerlink" title="论文核心贡献一览"></a>论文核心贡献一览</h3><div class="table-container">
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;">贡献维度</th>
-<th style="text-align: left;">具体内容</th>
+<th style="text-align:left">贡献维度</th>
+<th style="text-align:left">具体内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>架构革命</strong></td>
-<td style="text-align: left;">第一个完全基于注意力的序列模型，彻底抛弃
-RNN/CNN</td>
+<td style="text-align:left"><strong>架构革命</strong></td>
+<td style="text-align:left">第一个完全基于注意力的序列模型，彻底抛弃 RNN/CNN</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>并行性突破</strong></td>
-<td style="text-align: left;">训练速度飞跃（12 小时
-SOTA），根本原因是不再有序列依赖</td>
+<td style="text-align:left"><strong>并行性突破</strong></td>
+<td style="text-align:left">训练速度飞跃（12 小时 SOTA），根本原因是不再有序列依赖</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>长距离建模</strong></td>
-<td style="text-align: left;">常数级路径长度 <span
-class="math inline"><em>O</em>(1)</span>，天然解决长程依赖</td>
+<td style="text-align:left"><strong>长距离建模</strong></td>
+<td style="text-align:left">常数级路径长度 $O(1)$，天然解决长程依赖</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>可解释性</strong></td>
-<td
-style="text-align: left;">注意力权重可直接可视化，不同头展现不同语言学行为</td>
+<td style="text-align:left"><strong>可解释性</strong></td>
+<td style="text-align:left">注意力权重可直接可视化，不同头展现不同语言学行为</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>泛化验证</strong></td>
-<td style="text-align: left;">翻译 SOTA + 句法分析出色 =
-架构的通用性得到证实</td>
+<td style="text-align:left"><strong>泛化验证</strong></td>
+<td style="text-align:left">翻译 SOTA + 句法分析出色 = 架构的通用性得到证实</td>
 </tr>
 </tbody>
 </table>
-<h3 id="后续影响">后续影响</h3>
-<p>这篇论文开启了 <strong>“Attention Is All You Need”</strong>
-的时代。Transformer 从机器翻译出发，迅速扩展到：</p>
-<p><span class="math display">NLP 全线 → 计算机视觉
-(ViT) → 语音处理 → 多模态 → 代码生成 → ⋯</span></p>
-<p>GPT、BERT、T5、Claude、LLaMA……几乎所有现代大语言模型的名字背后，都是同一张架构蓝图——那篇
-2017 年 NIPS 论文中描绘的 Transformer。</p>
+</div>
+<h3 id="后续影响"><a href="#后续影响" class="headerlink" title="后续影响"></a>后续影响</h3><p>这篇论文开启了 <strong>“Attention Is All You Need”</strong> 的时代。Transformer 从机器翻译出发，迅速扩展到：</p>
+<script type="math/tex; mode=display">
+\text{NLP 全线} \longrightarrow \text{计算机视觉 (ViT)} \longrightarrow \text{语音处理} \longrightarrow \text{多模态} \longrightarrow \text{代码生成} \longrightarrow \cdots</script><p>GPT、BERT、T5、Claude、LLaMA……几乎所有现代大语言模型的名字背后，都是同一张架构蓝图——那篇 2017 年 NIPS 论文中描绘的 Transformer。</p>
 <blockquote>
-<p><em>“We are excited about the future of attention-based
-models.”</em></p>
+<p><em>“We are excited about the future of attention-based models.”</em></p>
 <p>——论文结尾的这句话，在此后近十年的 AI 浪潮中得到了最充分的应验。</p>
 </blockquote>
-<hr />
-<h2 id="参考资料">参考资料</h2>
-<ol type="1">
-<li>Vaswani, A., et al. (2017). <em>Attention Is All You Need</em>. NIPS
-2017. <a
-target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">arXiv:1706.03762</a></li>
-<li>官方代码实现：<a
-target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">tensorflow/tensor2tensor</a></li>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li>Vaswani, A., et al. (2017). <em>Attention Is All You Need</em>. NIPS 2017. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">arXiv:1706.03762</a></li>
+<li>官方代码实现：<a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">tensorflow/tensor2tensor</a></li>
 </ol>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://critel.github.io/">拜泪</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://critel.github.io/posts/d7e9f1a3.html">https://critel.github.io/posts/d7e9f1a3.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本文采用 CC BY-NC-SA 4.0 许可协议，转载请注明出处。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">学习资料</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/">论文解读</a></div><div class="post-share"><div class="social-share" data-image="/img/mypicture.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CS231n(肆)——神经网络与反向传播</div></div><div class="info-2"><div class="info-item-1">$\large\star$ 回顾：梯度下降与优化器 上一讲的核心：通过梯度下降优化损失函数，找到最优参数 W。 数值梯度 与 解析梯度    数值梯度 解析梯度     慢，近似，容易写 快，精确，容易出错    实践中：推导解析梯度，用数值梯度检查实现是否正确。 SGD (随机梯度下降) 全量梯度计算在 N 很大时代价太高，改用 mini-batch（32/64/128/256 个样本）近似： 1234while True:    data_batch = sample_training_data(data, 256)    weights_grad = evaluate_gradient(loss_fun, data_batch, weights)    weights += -step_size * weights_grad 学习率调度 几种常见策略： - Step: 在固定轮数处将 LR 乘以 0.1（如 ResNet 在第 30、60、90 epoch） - Cosine: $\alpha_t = \frac{1}{2}\...</div></div></div></a><a class="pagination-related" href="/posts/6b70280a.html" title="6.3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">6.3</div></div><div class="info-2"><div class="info-item-1">测试：a + b = c ### ==6.3 图的矩阵表示== 矩阵是图的一种重要代数表示，它将图的拓扑结构转化为数值阵列，便于利用代数工具（如矩阵乘法、特征值）分析图的路径与连通性质。本节涵盖四种核心矩阵。  ==🔷 6.3.1 无向图的关联矩阵==  定义：设无向图 G = ⟨V, E⟩，其中 V = {v1, v2, …, vn}，E = {e1, e2, …, em}。定义矩阵 M(G) = (mij)n × m，其中 mij 是顶点 vi 与边 ej 的关联次数（取值为 0, 1, 2）。   示例矩阵： $$ \Large \left[ \begin{array}{c|rrrrr}     &amp; e_1 &amp; e_2 &amp; e_3 &amp; e_4 &amp; e_5 \\ \hline v_1   &amp; 1   &amp; 1   &amp; 1   &amp; 0   &amp; 0   \\ v_2   &amp; 0   &amp; 1   &amp; 1   &amp; 1   &amp...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-25</div><div class="info-item-2">CS231n(肆)——神经网络与反向传播</div></div><div class="info-2"><div class="info-item-1">$\large\star$ 回顾：梯度下降与优化器 上一讲的核心：通过梯度下降优化损失函数，找到最优参数 W。 数值梯度 与 解析梯度    数值梯度 解析梯度     慢，近似，容易写 快，精确，容易出错    实践中：推导解析梯度，用数值梯度检查实现是否正确。 SGD (随机梯度下降) 全量梯度计算在 N 很大时代价太高，改用 mini-batch（32/64/128/256 个样本）近似： 1234while True:    data_batch = sample_training_data(data, 256)    weights_grad = evaluate_gradient(loss_fun, data_batch, weights)    weights += -step_size * weights_grad 学习率调度 几种常见策略： - Step: 在固定轮数处将 LR 乘以 0.1（如 ResNet 在第 30、60、90 epoch） - Cosine: $\alpha_t = \frac{1}{2}\...</div></div></div></a><a class="pagination-related" href="/posts/6b70280a.html" title="6.3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-25</div><div class="info-item-2">6.3</div></div><div class="info-2"><div class="info-item-1">测试：a + b = c ### ==6.3 图的矩阵表示== 矩阵是图的一种重要代数表示，它将图的拓扑结构转化为数值阵列，便于利用代数工具（如矩阵乘法、特征值）分析图的路径与连通性质。本节涵盖四种核心矩阵。  ==🔷 6.3.1 无向图的关联矩阵==  定义：设无向图 G = ⟨V, E⟩，其中 V = {v1, v2, …, vn}，E = {e1, e2, …, em}。定义矩阵 M(G) = (mij)n × m，其中 mij 是顶点 vi 与边 ej 的关联次数（取值为 0, 1, 2）。   示例矩阵： $$ \Large \left[ \begin{array}{c|rrrrr}     &amp; e_1 &amp; e_2 &amp; e_3 &amp; e_4 &amp; e_5 \\ \hline v_1   &amp; 1   &amp; 1   &amp; 1   &amp; 0   &amp; 0   \\ v_2   &amp; 0   &amp; 1   &amp; 1   &amp; 1   &amp...</div></div></div></a><a class="pagination-related" href="/posts/3cc897bc.html" title="Crite_Blog"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-21</div><div class="info-item-2">Crite_Blog</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick Start Create a new post 1$ hexo new &quot;My New Post&quot; More info: Writing Run server 1$ hexo server More info: Server Generate static files 1$ hexo generate More info: Generating Deploy to remote sites 1$ hexo deploy More info: Deployment </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">拜泪</div><div class="author-info-description">博客,但是试作品</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CriteL"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">要记住,我爱你</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E8%AE%BA%E6%96%87%E9%80%9F%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">零、论文速览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E8%83%8C%E6%99%AF%E4%B8%8E%E5%8A%A8%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">一、背景与动机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A4%E5%89%8D%E4%B8%BB%E6%B5%81%E6%96%B9%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 此前主流方法的局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%B4%9E%E5%AF%9F"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 核心洞察</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E5%85%A8%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">二、模型架构全景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8%E6%80%BB%E8%A7%88"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 编码器-解码器总览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 解码器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6transformer-%E7%9A%84%E7%81%B5%E9%AD%82"><span class="toc-number">4.</span> <span class="toc-text">三、注意力机制——Transformer
-的灵魂</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%82%B9%E7%A7%AF%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 缩放点积注意力</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E7%BC%A9%E6%94%BE"><span class="toc-number">4.1.1.</span> <span class="toc-text">为什么必须缩放？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 多头注意力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E8%B5%8B%E4%BA%88%E5%BA%8F%E5%88%97%E4%BB%A5%E9%A1%BA%E5%BA%8F"><span class="toc-number">5.</span> <span class="toc-text">四、位置编码——赋予序列以”顺序”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 为什么需要？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%BC%A6-%E4%BD%99%E5%BC%A6%E6%96%B9%E6%A1%88"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 正弦-余弦方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%AD%A3%E5%BC%A6%E7%9A%84%E7%90%86%E7%94%B1"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 选正弦的理由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E4%B8%BA%E4%BB%80%E4%B9%88%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9B%B4%E4%BC%98"><span class="toc-number">6.</span> <span class="toc-text">五、为什么自注意力更优？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%9D%A1%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA"><span class="toc-number">6.1.</span> <span class="toc-text">三条关键结论：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">六、训练方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%8E%E6%89%B9%E6%AC%A1"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 数据与批次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E4%B8%8E%E9%80%9F%E5%BA%A6"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 硬件与速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E7%AD%96%E7%95%A5"><span class="toc-number">7.3.</span> <span class="toc-text">6.3 优化器策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">7.4.</span> <span class="toc-text">6.4 正则化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">七、实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91"><span class="toc-number">8.1.</span> <span class="toc-text">7.1 机器翻译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">8.2.</span> <span class="toc-text">7.2 消融实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90%E6%B3%9B%E5%8C%96%E9%AA%8C%E8%AF%81"><span class="toc-number">8.3.</span> <span class="toc-text">7.3 句法分析（泛化验证）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88"><span class="toc-number">9.</span> <span class="toc-text">八、注意力可视化——模型”在想什么”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E8%B7%9D%E7%A6%BB%E4%BE%9D%E8%B5%96%E8%BF%BD%E8%B8%AA"><span class="toc-number">9.1.</span> <span class="toc-text">8.1 长距离依赖追踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A3%E6%B6%88%E8%A7%A3"><span class="toc-number">9.2.</span> <span class="toc-text">8.2 指代消解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%A5%E6%B3%95%E5%88%86%E5%B7%A5"><span class="toc-number">9.3.</span> <span class="toc-text">8.3 句法分工</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E6%80%BB%E7%BB%93%E4%B8%8E%E5%BD%B1%E5%93%8D"><span class="toc-number">10.</span> <span class="toc-text">九、总结与影响</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E6%A0%B8%E5%BF%83%E8%B4%A1%E7%8C%AE%E4%B8%80%E8%A7%88"><span class="toc-number">10.1.</span> <span class="toc-text">论文核心贡献一览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E5%BD%B1%E5%93%8D"><span class="toc-number">10.2.</span> <span class="toc-text">后续影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">11.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播">CS231n(肆)——神经网络与反向传播</a><time datetime="2026-07-25T01:30:00.000Z" title="发表于 2026-07-25 09:30:00">2026-07-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d7e9f1a3.html" title="《Attention Is All You Need》论文精读">《Attention Is All You Need》论文精读</a><time datetime="2026-07-18T12:30:00.000Z" title="发表于 2026-07-18 20:30:00">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6b70280a.html" title="6.3">6.3</a><time datetime="2026-04-25T11:54:12.000Z" title="发表于 2026-04-25 19:54:12">2026-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a4cf8400.html" title="初始之作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="初始之作"/></a><div class="content"><a class="title" href="/posts/a4cf8400.html" title="初始之作">初始之作</a><time datetime="2026-04-25T11:50:10.000Z" title="发表于 2026-04-25 19:50:10">2026-04-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3cc897bc.html" title="Crite_Blog">Crite_Blog</a><time datetime="2026-04-20T16:02:22.634Z" title="发表于 2026-04-21 00:02:22">2026-04-21</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 拜泪</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://critel.github.io/">拜泪</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://critel.github.io/posts/d7e9f1a3.html">https://critel.github.io/posts/d7e9f1a3.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本文采用 CC BY-NC-SA 4.0 许可协议，转载请注明出处。</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/">论文解读</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">学习资料</a></div><div class="post-share"><div class="social-share" data-image="/img/mypicture.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CS231n(肆)——神经网络与反向传播</div></div><div class="info-2"><div class="info-item-1">CS231n课程第四讲笔记，从线性分类器过渡到全连接神经网络，深入讲解反向传播算法的计算图、链式法则与梯度流模式，涵盖常用激活函数对比及向量/矩阵级别的梯度计算。</div></div></div></a><a class="pagination-related" href="/posts/6b70280a.html" title="6.3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">6.3</div></div><div class="info-2"><div class="info-item-1">测试：$a+b=c$ ==6.3 图的矩阵表示==矩阵是图的一种重要代数表示，它将图的拓扑结构转化为数值阵列，便于利用代数工具（如矩阵乘法、特征值）分析图的路径与连通性质。本节涵盖四种核心矩阵。  ==🔷 6.3.1 无向图的关联矩阵== 定义：设无向图 $G = \langle V, E \rangle$，其中 $V = {v1, v_2, \dots, v_n}$，$E = {e_1, e_2, \dots, e_m}$。定义矩阵 $\mathbf{M}(G) = (m{ij}){n \times m}$，其中 **$m{ij}$ 是顶点 $v_i$ 与边 $e_j$ 的关联次数**（取值为 $0, 1, 2$）。   示例矩阵： \Large \left[ \begin{array}{c|rrrrr}     & e_1 & e_2 & e_3 & e_4 & e_5 \\ \hline v_1   & 1   & 1   & 1   & 0   & 0   \\ v_2   & 0   & 1   & 1   & 1   & 0   \\ v_3   & 1   & 0...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-25</div><div class="info-item-2">CS231n(肆)——神经网络与反向传播</div></div><div class="info-2"><div class="info-item-1">CS231n课程第四讲笔记，从线性分类器过渡到全连接神经网络，深入讲解反向传播算法的计算图、链式法则与梯度流模式，涵盖常用激活函数对比及向量/矩阵级别的梯度计算。</div></div></div></a><a class="pagination-related" href="/posts/3cc897bc.html" title="Crite_Blog"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-21</div><div class="info-item-2">Crite_Blog</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment </div></div></div></a><a class="pagination-related" href="/posts/6b70280a.html" title="6.3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-25</div><div class="info-item-2">6.3</div></div><div class="info-2"><div class="info-item-1">测试：$a+b=c$ ==6.3 图的矩阵表示==矩阵是图的一种重要代数表示，它将图的拓扑结构转化为数值阵列，便于利用代数工具（如矩阵乘法、特征值）分析图的路径与连通性质。本节涵盖四种核心矩阵。  ==🔷 6.3.1 无向图的关联矩阵== 定义：设无向图 $G = \langle V, E \rangle$，其中 $V = {v1, v_2, \dots, v_n}$，$E = {e_1, e_2, \dots, e_m}$。定义矩阵 $\mathbf{M}(G) = (m{ij}){n \times m}$，其中 **$m{ij}$ 是顶点 $v_i$ 与边 $e_j$ 的关联次数**（取值为 $0, 1, 2$）。   示例矩阵： \Large \left[ \begin{array}{c|rrrrr}     & e_1 & e_2 & e_3 & e_4 & e_5 \\ \hline v_1   & 1   & 1   & 1   & 0   & 0   \\ v_2   & 0   & 1   & 1   & 1   & 0   \\ v_3   & 1   & 0...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">拜泪</div><div class="author-info-description">博客,但是试作品</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CriteL"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">要记住,我爱你</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E3%80%81%E8%AE%BA%E6%96%87%E9%80%9F%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">零、论文速览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%83%8C%E6%99%AF%E4%B8%8E%E5%8A%A8%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">一、背景与动机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%AD%A4%E5%89%8D%E4%B8%BB%E6%B5%81%E6%96%B9%E6%B3%95%E7%9A%84%E5%B1%80%E9%99%90"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 此前主流方法的局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%A0%B8%E5%BF%83%E6%B4%9E%E5%AF%9F"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 核心洞察</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%E5%85%A8%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">二、模型架构全景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8%E6%80%BB%E8%A7%88"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 编码器-解码器总览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 解码器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94Transformer-%E7%9A%84%E7%81%B5%E9%AD%82"><span class="toc-number">4.</span> <span class="toc-text">三、注意力机制——Transformer 的灵魂</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%BC%A9%E6%94%BE%E7%82%B9%E7%A7%AF%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 缩放点积注意力</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E7%BC%A9%E6%94%BE%EF%BC%9F"><span class="toc-number">4.1.1.</span> <span class="toc-text">为什么必须缩放？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 多头注意力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E2%80%94%E2%80%94%E8%B5%8B%E4%BA%88%E5%BA%8F%E5%88%97%E4%BB%A5%E2%80%9D%E9%A1%BA%E5%BA%8F%E2%80%9D"><span class="toc-number">5.</span> <span class="toc-text">四、位置编码——赋予序列以”顺序”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%EF%BC%9F"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 为什么需要？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%AD%A3%E5%BC%A6-%E4%BD%99%E5%BC%A6%E6%96%B9%E6%A1%88"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 正弦-余弦方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E9%80%89%E6%AD%A3%E5%BC%A6%E7%9A%84%E7%90%86%E7%94%B1"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 选正弦的理由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9B%B4%E4%BC%98%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">五、为什么自注意力更优？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%9D%A1%E5%85%B3%E9%94%AE%E7%BB%93%E8%AE%BA%EF%BC%9A"><span class="toc-number">6.1.</span> <span class="toc-text">三条关键结论：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%AE%AD%E7%BB%83%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">六、训练方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%95%B0%E6%8D%AE%E4%B8%8E%E6%89%B9%E6%AC%A1"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 数据与批次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E7%A1%AC%E4%BB%B6%E4%B8%8E%E9%80%9F%E5%BA%A6"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 硬件与速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E4%BC%98%E5%8C%96%E5%99%A8%E7%AD%96%E7%95%A5"><span class="toc-number">7.3.</span> <span class="toc-text">6.3 优化器策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">7.4.</span> <span class="toc-text">6.4 正则化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">七、实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E6%9C%BA%E5%99%A8%E7%BF%BB%E8%AF%91"><span class="toc-number">8.1.</span> <span class="toc-text">7.1 机器翻译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">8.2.</span> <span class="toc-text">7.2 消融实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90%EF%BC%88%E6%B3%9B%E5%8C%96%E9%AA%8C%E8%AF%81%EF%BC%89"><span class="toc-number">8.3.</span> <span class="toc-text">7.3 句法分析（泛化验证）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%8F%AF%E8%A7%86%E5%8C%96%E2%80%94%E2%80%94%E6%A8%A1%E5%9E%8B%E2%80%9D%E5%9C%A8%E6%83%B3%E4%BB%80%E4%B9%88%E2%80%9D"><span class="toc-number">9.</span> <span class="toc-text">八、注意力可视化——模型”在想什么”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-%E9%95%BF%E8%B7%9D%E7%A6%BB%E4%BE%9D%E8%B5%96%E8%BF%BD%E8%B8%AA"><span class="toc-number">9.1.</span> <span class="toc-text">8.1 长距离依赖追踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-%E6%8C%87%E4%BB%A3%E6%B6%88%E8%A7%A3"><span class="toc-number">9.2.</span> <span class="toc-text">8.2 指代消解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-%E5%8F%A5%E6%B3%95%E5%88%86%E5%B7%A5"><span class="toc-number">9.3.</span> <span class="toc-text">8.3 句法分工</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%80%BB%E7%BB%93%E4%B8%8E%E5%BD%B1%E5%93%8D"><span class="toc-number">10.</span> <span class="toc-text">九、总结与影响</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E6%A0%B8%E5%BF%83%E8%B4%A1%E7%8C%AE%E4%B8%80%E8%A7%88"><span class="toc-number">10.1.</span> <span class="toc-text">论文核心贡献一览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E7%BB%AD%E5%BD%B1%E5%93%8D"><span class="toc-number">10.2.</span> <span class="toc-text">后续影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">11.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2e8a9328.html" title="CS231n(肆)——神经网络与反向传播">CS231n(肆)——神经网络与反向传播</a><time datetime="2026-07-25T01:30:00.000Z" title="发表于 2026-07-25 09:30:00">2026-07-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/d7e9f1a3.html" title="《Attention Is All You Need》论文精读">《Attention Is All You Need》论文精读</a><time datetime="2026-07-18T12:30:00.000Z" title="发表于 2026-07-18 20:30:00">2026-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6b70280a.html" title="6.3">6.3</a><time datetime="2026-04-25T11:54:12.000Z" title="发表于 2026-04-25 19:54:12">2026-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/a4cf8400.html" title="初始之作"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/mypicture.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="初始之作"/></a><div class="content"><a class="title" href="/posts/a4cf8400.html" title="初始之作">初始之作</a><time datetime="2026-04-25T11:50:10.000Z" title="发表于 2026-04-25 19:50:10">2026-04-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3cc897bc.html" title="Crite_Blog">Crite_Blog</a><time datetime="2026-04-20T16:02:22.634Z" title="发表于 2026-04-21 00:02:22">2026-04-21</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 拜泪</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
   const loadMathjax = () => {
     if (!window.MathJax) {
       window.MathJax = {
@@ -1027,6 +805,30 @@ target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor
   btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
   window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
 })()</script></div><div class="aplayer no-destroy" id="9615940111" server="tencent" type="playlist" order="list" fixed="true" preload="auto" autoplay="false" mutex="true" ></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer');
+    var item_html = '<div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v4.2.2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><script async src="/js/ali_font.js"></script><script data-pjax>
   function butterfly_clock_anzhiyu_injector_config(){
     var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
     var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
@@ -1059,31 +861,7 @@ target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor
   else if (epage === cpage){
     butterfly_clock_anzhiyu_injector_config();
   }
-  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><script data-pjax>
-  function butterfly_footer_beautify_injector_config(){
-    var parent_div_git = document.getElementById('footer');
-    var item_html = '<div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v4.2.2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Github托管"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
-    console.log('已挂载butterfly_footer_beautify')
-    parent_div_git.insertAdjacentHTML("beforeend",item_html)
-    }
-  var elist = 'null'.split(',');
-  var cpage = location.pathname;
-  var epage = 'all';
-  var flag = 0;
-
-  for (var i=0;i<elist.length;i++){
-    if (cpage.includes(elist[i])){
-      flag++;
-    }
-  }
-
-  if ((epage ==='all')&&(flag == 0)){
-    butterfly_footer_beautify_injector_config();
-  }
-  else if (epage === cpage){
-    butterfly_footer_beautify_injector_config();
-  }
-  </script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify/lib/swiperbdage_init.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+  </script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
 for(var i = 0;i<arr.length;i++){
     arr[i].classList.add('wow');
     arr[i].classList.add('animate__zoomIn');
@@ -1139,4 +917,4 @@ for(var i = 0;i<arr.length;i++){
     arr[i].setAttribute('data-wow-delay', '');
     arr[i].setAttribute('data-wow-offset', '');
     arr[i].setAttribute('data-wow-iteration', '');
-  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
